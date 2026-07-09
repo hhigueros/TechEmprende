@@ -1,0 +1,563 @@
+// Importar archivos parciales
+
+@use "variables" as v;
+@use "mixins" as m;
+
+
+// Estilos generales
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: v.$fuente-base;
+    color: v.$color-texto;
+    background: v.$color-claro;
+    line-height: 1.6;
+}
+
+
+h1,
+h2,
+h3 {
+    font-family: v.$fuente-titulo;
+    color: v.$color-oscuro;
+}
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+.container {
+    @include m.contenedor;
+}
+
+
+// Header principal
+
+.site-header {
+    background: v.$color-oscuro;
+    color: v.$color-blanco;
+}
+
+
+.nav {
+    @include m.contenedor;
+    @include m.flex-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.logo {
+    color: v.$color-blanco;
+    font-family: v.$fuente-titulo;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+
+.nav__links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+
+
+    a {
+        color: v.$color-blanco;
+        font-size: 0.95rem;
+        transition: 0.3s;
+
+
+        &:hover {
+            color: v.$color-acento;
+        }
+
+    }
+
+}
+
+
+.nav__toggle {
+    display: none;
+}
+
+
+
+// Hero principal
+
+.hero {
+
+    min-height: 90vh;
+    background: v.$color-oscuro;
+    color: v.$color-blanco;
+
+    @include m.contenedor;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 60px;
+
+}
+
+
+.hero__content {
+
+
+    h1 {
+
+        color: v.$color-blanco;
+        font-size: 4rem;
+        line-height: 1.1;
+        margin-bottom: 25px;
+
+    }
+
+
+    p {
+
+        color: #CBD5E1;
+        font-size: 1.2rem;
+        max-width: 550px;
+        margin-bottom: 35px;
+
+    }
+
+
+}
+
+.btn {
+
+    @include m.boton(v.$color-acento);
+
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+
+
+    &:hover {
+
+        box-shadow: 0 15px 35px rgba(34, 197, 94, 0.45);
+
+    }
+
+}
+
+.hero__image {
+
+
+    img {
+
+        border-radius: v.$radio;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+
+    }
+
+}
+
+// Áreas tecnológicas
+
+.areas {
+
+    padding: 90px 0;
+    background: v.$color-claro;
+
+    @include m.contenedor;
+
+}
+
+
+.section-header {
+
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 50px;
+
+
+    h2 {
+
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+
+    }
+
+
+    p {
+
+        color: v.$color-gris;
+        font-size: 1.1rem;
+
+    }
+
+}
+
+// Tarjetas generales
+
+.cards {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+}
+
+
+.card {
+
+    background: v.$color-blanco;
+    border-radius: v.$radio;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+
+    transition: 0.35s ease;
+
+
+    &:hover {
+
+        transform: translateY(-8px);
+
+        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.20);
+
+    }
+
+
+    img {
+
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+
+        transition: 0.4s ease;
+
+    }
+
+
+    &:hover img {
+
+        transform: scale(1.03);
+
+    }
+
+
+    h3 {
+
+        font-size: 1.25rem;
+        padding: 20px 25px 10px;
+
+    }
+
+
+    p {
+
+        padding: 0 25px;
+        color: v.$color-gris;
+
+        flex-grow: 1;
+
+    }
+
+}
+
+
+// Botón de las tarjetas
+
+.card__button {
+
+    margin: 25px;
+    padding: 12px 22px;
+
+    background: v.$color-boton;
+    color: v.$color-blanco;
+
+    border-radius: 50px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.30);
+
+
+    &:hover {
+
+        background: v.$color-acento;
+
+        transform: translateY(-3px);
+
+        box-shadow: 0 12px 25px rgba(34, 197, 94, 0.35);
+
+    }
+
+}
+
+// Formalización del emprendimiento
+
+.formalizacion {
+
+    background: v.$color-blanco;
+    padding: 90px 0;
+
+    @include m.contenedor;
+
+
+
+    .cards {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+// Cómo vender servicios tecnológicos
+
+.ventas {
+
+    background: v.$color-oscuro;
+    color: v.$color-blanco;
+    padding: 90px 0;
+
+    @include m.contenedor;
+
+
+    .section-header {
+
+
+        h2 {
+
+            color: v.$color-blanco;
+
+        }
+
+
+        p {
+
+            color: #CBD5E1;
+
+        }
+
+    }
+
+}
+
+
+
+.ventas__content {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+}
+
+
+
+.ventas__item {
+
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: v.$radio;
+
+
+    h3 {
+
+        color: v.$color-blanco;
+        margin-bottom: 15px;
+
+    }
+
+
+    p {
+
+        color: #CBD5E1;
+
+    }
+
+}
+
+
+
+// Footer
+
+.site-footer {
+
+    background: #020617;
+    color: v.$color-blanco;
+    padding: 50px 0;
+    text-align: center;
+
+}
+
+
+
+.footer__content {
+
+
+    h3 {
+
+        font-family: v.$fuente-titulo;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+
+    }
+
+
+    p {
+
+        color: #CBD5E1;
+        margin-bottom: 10px;
+
+    }
+
+}
+
+
+
+// Responsive tablet
+
+@include m.tablet {
+
+
+    .hero {
+
+        grid-template-columns: 1fr;
+        text-align: center;
+
+    }
+
+
+    .hero__content {
+
+
+        p {
+
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+    }
+
+
+    .cards {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .formalizacion .cards {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .ventas__content {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+
+// Responsive móvil
+
+@include m.movil {
+
+
+    .nav {
+
+        flex-direction: column;
+        gap: 20px;
+
+    }
+
+
+    .nav__links {
+
+        display: none;
+        flex-direction: column;
+        text-align: center;
+
+
+        &.active {
+
+            display: flex;
+
+        }
+
+    }
+
+
+    .nav__toggle {
+
+        display: block;
+        background: transparent;
+        color: v.$color-blanco;
+        border: 1px solid v.$color-blanco;
+        padding: 8px 15px;
+        border-radius: 10px;
+
+    }
+
+
+    .hero {
+
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+
+        .hero__content {
+
+
+            h1 {
+
+                font-size: 2.5rem;
+
+            }
+
+        }
+
+    }
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .formalizacion .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
