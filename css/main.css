@@ -324,3 +324,78 @@ a {
     grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=main.css.map */
+
+/* ==========================
+   FORMULARIO DE CONTACTO POO
+========================== */
+
+.contacto {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+
+.contacto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+
+.contacto form {
+  max-width: 600px;
+  margin: 40px auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.contacto input,
+.contacto select {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #CBD5E1;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+
+.contacto input:focus,
+.contacto select:focus {
+  border-color: #22C55E;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+
+.contacto button {
+  background: #22C55E;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+
+.contacto button:hover {
+  transform: translateY(-3px);
+  background: #16A34A;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+}
+
+
+#resultado {
+  margin-top: 25px;
+  font-weight: 600;
+  color: #1D4ED8;
+  font-size: 1.1rem;
+}
