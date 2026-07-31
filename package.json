@@ -1,0 +1,27 @@
+{
+  "name": "emprende-landing",
+  "version": "1.0.0",
+  "description": "Landing page desarrollada como proyecto de Frontend y posteriormente migrada a un entorno profesional utilizando Git, GitHub, TypeScript y Programación Orientada a Objetos (POO).",
+  "main": "index.js",
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhigueros/TechEmprende.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hhigueros/TechEmprende/issues"
+  },
+  "homepage": "https://github.com/hhigueros/TechEmprende#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.2.0"
+  }
+}
