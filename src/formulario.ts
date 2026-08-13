@@ -14,8 +14,11 @@ export class GestorContactos {
         plan: TipoPlan
     ): Resultado<string> {
 
+        const nombreLimpio = nombre.trim();
+        const correoLimpio = correo.trim();
 
-        if (nombre.trim().length < 3) {
+
+        if (nombreLimpio.length < 3) {
             return {
                 ok: false,
                 datos: "El nombre debe tener al menos 3 caracteres"
@@ -23,7 +26,9 @@ export class GestorContactos {
         }
 
 
-        if (!correo.includes("@")) {
+        const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!formatoCorreo.test(correoLimpio)) {
             return {
                 ok: false,
                 datos: "Correo inválido"
@@ -31,10 +36,25 @@ export class GestorContactos {
         }
 
 
+        const planesValidos: TipoPlan[] = [
+            "gratis",
+            "emprendedor",
+            "empresa"
+        ];
+
+
+        if (!planesValidos.includes(plan)) {
+            return {
+                ok: false,
+                datos: "El plan seleccionado no es válido"
+            };
+        }
+
+
         const nuevoLead = new Lead(
             this.#siguienteId++,
-            nombre,
-            correo,
+            nombreLimpio,
+            correoLimpio,
             plan
         );
 
@@ -54,35 +74,35 @@ export class GestorContactos {
     }
 
 
-   guardarJSON(): void {
+    guardarJSON(): void {
 
-    const json = JSON.stringify(
-        this.#leads,
-        null,
-        2
-    );
-
-
-    const blob = new Blob(
-        [json],
-        {
-            type: "application/json"
-        }
-    );
+        const json = JSON.stringify(
+            this.#leads,
+            null,
+            2
+        );
 
 
-    const url = URL.createObjectURL(blob);
+        const blob = new Blob(
+            [json],
+            {
+                type: "application/json"
+            }
+        );
 
 
-    const enlace = document.createElement("a");
-
-    enlace.href = url;
-    enlace.download = "contactos.json";
-
-    enlace.click();
+        const url = URL.createObjectURL(blob);
 
 
-    URL.revokeObjectURL(url);
+        const enlace = document.createElement("a");
+
+        enlace.href = url;
+        enlace.download = "contactos.json";
+
+        enlace.click();
+
+
+        URL.revokeObjectURL(url);
     }
 
 }
